@@ -1,4 +1,4 @@
-# MULTIMEDIAL
+# ARCHIVO DIGITAL
 
 ## Taller multimedia 
 Ejercicio 1, Semana 1 
@@ -25,10 +25,10 @@ Ejercicio 1, Semana 1
 body{
 /* "body" se refiere a todo el contenido visible de la página */
 
-  background-color: white;
+  background-color: green;
   /* Define que el fondo de toda la página sea blanco */
 
-  color: black;
+  color: white;
   /* Define que el color del texto sea negro */
 
   margin: 0;
