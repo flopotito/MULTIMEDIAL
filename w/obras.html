@@ -1,94 +1,148 @@
 <!DOCTYPE html>
+<html lang="es">
 
-<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Obras - Florencia Umaña</title>
+<meta charset="UTF-8">
+<title>Obras - Florencia Umaña</title>
 
-```
 <style>
-    body {
-        font-family: monospace;
-        background-color: black;
-        margin: 0;
-    }
 
-    .contenedor {
-        width: 90%;
-        max-width: 800px;
-        margin: auto;
-    }
+body{
+    font-family: monospace;
+    background:black;
+    margin:0;
+}
 
-    .bloque {
-        background-color: white;
-        margin: 20px 0;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
+.volver{
+    display:inline-block;
+    margin:20px;
+    padding:10px 15px;
+    background:white;
+    color:black;
+    text-decoration:none;
+    border-radius:8px;
+}
 
-    .bloque img {
-        width: 100%;
-        height: auto;
-    }
+.galeria{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap:20px;
+}
 
-    .bloque h2 {
-        margin-top: 10px;
-        text-align: center;
-    }
+.galeria img{
+    width:100%;
+    cursor:pointer;
+    border-radius:6px;
+}
 
-    .bloque p {
-        line-height: 1.5;
-    }
+/* ventana grande */
 
-    .volver {
-        display: inline-block;
-        margin: 20px;
-        padding: 10px 15px;
-        background-color: white;
-        color: black;
-        text-decoration: none;
-        border-radius: 8px;
-    }
+.modal{
+    display:none;
+    position:fixed;
+    z-index:10;
+    padding-top:60px;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    text-align:center;
+}
+
+.modal img{
+    max-width:80%;
+    max-height:70vh;
+}
+
+.descripcion{
+    color:white;
+    margin-top:20px;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.cerrar{
+    position:absolute;
+    top:20px;
+    right:40px;
+    color:white;
+    font-size:40px;
+    cursor:pointer;
+}
+
 </style>
-```
-
 </head>
 
 <body>
 
-```
 <a href="index.html" class="volver">← Volver</a>
 
-<div class="contenedor">
+<div class="galeria">
 
-    <div class="bloque">
-        <img src="img1.jpg" alt="Descripción de la imagen">
-        <h2>Fragmentos</h2>
-        <p>
-            El pie, soporte de movimiento, condensa gran parte del gesto del cuerpo en su simpleza. En estos moldes, el gesto se convierte
-            en un registro material, revelando la tensión entre lo efímero del movimiento y la permanencia del yeso.
-        </p>
-    </div>
+<img src="img1.jpg" onclick="abrir(this,'Fragmentos','El pie, soporte de movimiento...')">
 
-    <div class="bloque">
-        <img src="img2.jpg" alt="Descripción de la imagen">
-        <h2>Diapositivas</h2>
-        <p>
-            Imágenes creadas con maquillaje en un soporte transparente.
-        </p>
-    </div>
+<img src="img2.jpg" onclick="abrir(this,'Diapositivas','Imágenes creadas con maquillaje en soporte transparente.')">
 
-    <div class="bloque">
-        <img src="img3.jpg" alt="Descripción de la imagen">
-        <h2>Tomando 11</h2>
-        <p>
-            Trabajo en proceso. Tazas hechas en base de servilleta, para representar la fragilidad que sentía en la mesa de mi casa.
-        </p>
-    </div>
+<img src="img3.jpg" onclick="abrir(this,'Tomando 11','Tazas hechas en base de servilleta para representar fragilidad.')">
+
+<img src="img4.jpg" onclick="abrir(this,'Obra 4','Descripción de la obra.')">
+
+<img src="img5.jpg" onclick="abrir(this,'Obra 5','Descripción de la obra.')">
+
+<img src="img6.jpg" onclick="abrir(this,'Obra 6','Descripción de la obra.')">
+
+<img src="img7.jpg" onclick="abrir(this,'Obra 7','Descripción de la obra.')">
+
+<img src="img8.jpg" onclick="abrir(this,'Obra 8','Descripción de la obra.')">
+
+<img src="img9.jpg" onclick="abrir(this,'Obra 9','Descripción de la obra.')">
+
+<img src="img10.jpg" onclick="abrir(this,'Obra 10','Descripción de la obra.')">
 
 </div>
-```
+
+
+<!-- ventana grande -->
+
+<div id="modal" class="modal">
+
+<span class="cerrar" onclick="cerrar()">&times;</span>
+
+<img id="imgGrande">
+
+<div class="descripcion">
+<h2 id="titulo"></h2>
+<p id="texto"></p>
+</div>
+
+</div>
+
+<script>
+
+function abrir(img,titulo,descripcion){
+
+document.getElementById("modal").style.display="block";
+
+document.getElementById("imgGrande").src=img.src;
+
+document.getElementById("titulo").innerText=titulo;
+
+document.getElementById("texto").innerText=descripcion;
+
+}
+
+function cerrar(){
+
+document.getElementById("modal").style.display="none";
+
+}
+
+</script>
 
 </body>
 </html>
